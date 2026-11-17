@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7166F0">
+<title>在线心理测评｜MBTI、大五人格、DISC、霍兰德职业兴趣、心理状态自评</title>
+<meta name="description" content="免费在线心理测评合集：MBTI 16型人格（93题原版）、大五人格 OCEAN、DISC 行为风格、霍兰德职业兴趣 RIASEC、心理状态自评（PHQ-9/GAD-7/PSS-10）。纯本地计算，支持生成个人报告与历史记录。">
+<meta name="keywords" content="心理测试,MBTI测试,大五人格,OCEAN,DISC测试,霍兰德职业兴趣,RIASEC,16型人格,性格测试,职业测评,PHQ-9,GAD-7,免费测评">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="测试实验室">
+<link rel="canonical" href="https://quiz.virtualman.top/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237166F0'/%3E%3Ctext x='32' y='46' font-size='36' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'%3EQ%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="测试实验室">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="在线心理测评合集｜MBTI · 大五人格 · DISC · 霍兰德">
+<meta property="og:description" content="5 个主流心理测评，纯本地计算，答题后生成可保存的个人报告。">
+<meta property="og:url" content="https://quiz.virtualman.top/">
+<meta property="og:image" content="https://quiz.virtualman.top/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="在线心理测评合集｜MBTI · 大五人格 · DISC · 霍兰德">
+<meta name="twitter:description" content="5 个主流心理测评，纯本地计算，答题后生成可保存的个人报告。">
+<meta name="twitter:image" content="https://quiz.virtualman.top/assets/og-image.png">
+<style>
+  :root{
+    --brand:#7166F0; --brand-2:#9D8CFF; --brand-soft:rgba(113,102,240,.13);
+    --bg:#0C0B1A; --bg-2:#141232; --card:rgba(255,255,255,.055); --card-brd:rgba(255,255,255,.10);
+    --tx:#F4F2FF; --tx-2:#A9A4CB; --tx-3:#736E9B;
+    --ok:#4ED8A6; --warn:#F5B96A; --danger:#F2748C; --info:#4FA8F5;
+    --glow:rgba(113,102,240,.35); --shadow:0 18px 50px rgba(0,0,0,.32);
+    --bar-bg:rgba(12,11,26,.93); --solid:#141232;
+  }
+  html[data-theme="light"]{
+    --bg:#F5F4FC; --bg-2:#FFFFFF; --card:rgba(255,255,255,.82); --card-brd:rgba(113,102,240,.15);
+    --tx:#1C1A33; --tx-2:#5B567A; --tx-3:#9692B0;
+    --glow:rgba(113,102,240,.18); --shadow:0 18px 50px rgba(60,50,130,.12);
+    --bar-bg:rgba(245,244,252,.93); --solid:#FFFFFF;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{
+    margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    color:var(--tx);background:
+      radial-gradient(900px 500px at 10% -12%,var(--glow),transparent 62%),
+      radial-gradient(700px 480px at 100% 0%,rgba(157,140,255,.15),transparent 58%),
+      linear-gradient(165deg,var(--bg),var(--bg-2));
+    background-attachment:fixed;transition:background .35s,color .3s;
+    display:flex;flex-direction:column;align-items:center;padding:0 16px 56px;
+  }
+  body.quizing{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.3;
+    background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:36px 36px;mask-image:linear-gradient(to bottom,#000,transparent 72%);
+  }
+  main{width:100%;max-width:920px;min-width:0;position:relative;z-index:1}
+  header{width:100%;max-width:920px;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 0 6px;position:relative;z-index:2}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;font-size:15px;min-width:0;color:inherit;text-decoration:none}
+  .logo .mark{width:34px;height:34px;flex:none;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 8px 22px var(--glow);font-size:15px;color:#fff}
+  .logo small{color:var(--tx-3);font-weight:500;font-size:11px;margin-left:4px;white-space:nowrap}
+  .head-acts{display:flex;gap:8px;flex:none}
+  .icon-btn{width:40px;height:40px;flex:none;border-radius:12px;border:1px solid var(--card-brd);background:var(--card);color:var(--tx-2);cursor:pointer;display:grid;place-items:center;transition:.2s;position:relative}
+  .icon-btn:hover{color:var(--brand);border-color:var(--brand)}
+  .icon-btn .badge{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--brand);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;border:2px solid var(--bg)}
+  .hist-btn{width:auto;padding:0 13px;gap:7px;font-size:13px;font-weight:600;display:inline-flex}
+  .hidden{display:none!important}
+
+  .btn{
+    border:1px solid var(--card-brd);background:rgba(255,255,255,.05);color:var(--tx);
+    padding:13px 18px;border-radius:13px;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:48px;min-width:0;text-decoration:none;
+  }
+  .btn:hover{border-color:var(--brand);color:var(--brand-2);transform:translateY(-1px)}
+  .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent;box-shadow:0 10px 24px var(--glow)}
+  .btn.primary:hover{color:#fff;filter:brightness(1.07)}
+  .btn.ghost{flex:0 0 auto}
+  .btn.danger{color:var(--danger);border-color:rgba(242,116,140,.35)}
+  .btn.sm{padding:9px 13px;min-height:38px;font-size:12px;border-radius:10px}
+  .foot-note{text-align:center;color:var(--tx-3);font-size:12px;line-height:1.9;margin:28px 0 0;overflow-wrap:anywhere}
+  .sec-title{color:var(--tx-3);font-size:12px;font-weight:700;letter-spacing:2px;margin:32px 0 15px;text-align:center}
+
+  /* ===== 首页 ===== */
+  .hero{text-align:center;padding:34px 0 6px}
+  .pill{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;background:var(--brand-soft);border:1px solid var(--card-brd);color:var(--brand-2);font-size:11px;font-weight:700;margin-bottom:18px;max-width:100%}
+  .pill .dot{width:6px;height:6px;flex:none;border-radius:50%;background:var(--brand-2);box-shadow:0 0 10px var(--brand-2)}
+  h1{margin:0;font-size:clamp(27px,7.5vw,46px);line-height:1.22;letter-spacing:-.8px;overflow-wrap:anywhere}
+  h1 .grad{background:linear-gradient(120deg,var(--brand),var(--brand-2),#C9B8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin:14px auto 0;max-width:580px;color:var(--tx-2);font-size:14px;line-height:1.8;overflow-wrap:anywhere}
+  .resume{display:flex;align-items:center;gap:12px;text-align:left;margin-top:22px;padding:15px 16px;border-radius:16px;border:1px solid rgba(78,216,166,.3);background:rgba(78,216,166,.07);min-width:0}
+  .resume .ico{width:36px;height:36px;flex:none;border-radius:11px;background:rgba(78,216,166,.16);color:var(--ok);display:grid;place-items:center}
+  .resume .txt{flex:1;min-width:0}
+  .resume .txt b{display:block;font-size:14px}
+  .resume .txt span{display:block;font-size:12px;color:var(--tx-2);margin-top:3px;overflow-wrap:anywhere}
+  .resume .x{flex:none;width:28px;height:28px;border:none;background:transparent;color:var(--tx-3);cursor:pointer;font-size:19px;line-height:1}
+  .recent{display:flex;align-items:center;gap:14px;margin-top:22px;padding:16px;border-radius:18px;border:1px solid var(--card-brd);background:var(--card);min-width:0;cursor:pointer;transition:.2s;text-align:left}
+  .recent:hover{border-color:var(--brand)}
+  .recent .rc{font-size:22px;font-weight:800;letter-spacing:1px;line-height:1.1;background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;flex:none;max-width:130px;overflow-wrap:anywhere}
+  .recent .rt{flex:1;min-width:0}
+  .recent .rt b{display:block;font-size:14px}
+  .recent .rt span{display:block;font-size:12px;color:var(--tx-2);margin-top:4px;overflow-wrap:anywhere}
+  .recent .arrow{flex:none;color:var(--tx-3)}
+
+  .test-grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:700px){.test-grid{grid-template-columns:1fr 1fr}.hero{padding-top:46px}}
+  .test-card{
+    position:relative;overflow:hidden;border:1px solid var(--card-brd);border-radius:22px;padding:22px 20px 18px;
+    background:var(--card);backdrop-filter:blur(14px);box-shadow:var(--shadow);transition:transform .25s,border-color .25s;min-width:0;
+    display:flex;flex-direction:column;
+  }
+  .test-card:hover{transform:translateY(-4px);border-color:var(--brand)}
+  .test-card::after{content:"";position:absolute;top:-70px;right:-70px;width:170px;height:170px;border-radius:50%;background:var(--glow);filter:blur(32px);opacity:.4}
+  .tc-top{position:relative;z-index:1;display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;min-width:0}
+  .tc-icon{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--brand-soft);border:1px solid var(--card-brd);color:var(--brand-2)}
+  .tc-name{flex:1;min-width:0}
+  .tc-name h3{margin:0;font-size:18px;line-height:1.35;overflow-wrap:anywhere}
+  .tc-name p{margin:4px 0 0;font-size:11.5px;color:var(--tx-3);letter-spacing:.5px;overflow-wrap:anywhere}
+  .tc-tag{flex:none;font-size:10px;font-weight:700;padding:4px 9px;border-radius:7px;background:var(--brand-soft);color:var(--brand-2);white-space:nowrap}
+  .tc-desc{position:relative;z-index:1;color:var(--tx-2);font-size:12.5px;line-height:1.8;margin:0 0 14px;overflow-wrap:anywhere;flex:1}
+  .tc-meta{position:relative;z-index:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;font-size:11.5px;color:var(--tx-3)}
+  .tc-meta span{display:inline-flex;align-items:center;gap:4px}
+  .tc-actions{position:relative;z-index:1;display:flex;gap:8px}
+  .tc-actions .btn{flex:1}
+  @media (max-width:380px){
+    .tc-name h3{font-size:16.5px}
+    .tc-name p{font-size:10.5px}
+    .tc-tag{font-size:9.5px;padding:3px 7px}
+    .tc-icon{width:38px;height:38px}
+    .tc-top{gap:10px}
+  }
+  .variant-row{position:relative;z-index:1;display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .vchip{font-size:11px;padding:5px 10px;border-radius:8px;border:1px solid var(--card-brd);color:var(--tx-2);background:rgba(255,255,255,.03)}
+
+  /* ===== 答题 ===== */
+  .quiz-top{display:flex;align-items:center;gap:12px;margin:20px 0 6px;min-width:0}
+  .prog-wrap{flex:1;min-width:0}
+  .prog-info{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--tx-2);margin-bottom:8px;min-width:0}
+  .prog-info span{overflow-wrap:anywhere;min-width:0}
+  .prog-info b{color:var(--brand-2)}
+  .prog{height:7px;border-radius:99px;background:rgba(127,127,160,.18);overflow:hidden}
+  .prog i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--brand-2));width:0;transition:width .35s cubic-bezier(.4,0,.2,1)}
+  .q-card{margin-top:16px;border:1px solid var(--card-brd);border-radius:22px;padding:26px 20px 22px;background:var(--card);backdrop-filter:blur(16px);box-shadow:var(--shadow);min-width:0;animation:fadeUp .32s cubic-bezier(.2,.7,.3,1)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .q-dim{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--brand-2);background:var(--brand-soft);padding:6px 12px;border-radius:8px;margin-bottom:16px;max-width:100%}
+  .q-text{font-size:clamp(18px,4.6vw,24px);font-weight:650;line-height:1.55;margin:0 0 8px;overflow-wrap:anywhere}
+  .q-note{font-size:12px;color:var(--tx-3);line-height:1.6;margin:0 0 20px;overflow-wrap:anywhere}
+  .opts{display:flex;flex-direction:column;gap:11px}
+  .opt{display:flex;align-items:center;gap:13px;width:100%;min-width:0;text-align:left;cursor:pointer;border:1px solid var(--card-brd);border-radius:15px;padding:15px 14px;background:rgba(255,255,255,.03);color:var(--tx);font-size:15px;line-height:1.55;min-height:62px;transition:.18s}
+  .opt:hover{border-color:var(--brand);background:var(--brand-soft)}
+  .opt.sel{border-color:var(--brand);background:linear-gradient(135deg,var(--brand-soft),rgba(157,140,255,.16));box-shadow:0 0 0 1px var(--brand) inset}
+  .opt .key{width:28px;height:28px;flex:none;border-radius:9px;display:grid;place-items:center;border:1px solid var(--card-brd);font-size:12px;font-weight:700;color:var(--tx-2);background:rgba(255,255,255,.03)}
+  .opt.sel .key{background:var(--brand);color:#fff;border-color:transparent}
+  .opt .ot{min-width:0;flex:1;overflow-wrap:anywhere}
+  .likert{display:flex;flex-direction:column;gap:9px}
+  .likert .opt{min-height:56px;padding:13px 14px;font-size:14px;justify-content:flex-start}
+  .likert .dotmark{width:20px;height:20px;flex:none;border-radius:50%;border:2px solid var(--card-brd);position:relative}
+  .likert .opt.sel .dotmark{border-color:var(--brand)}
+  .likert .opt.sel .dotmark::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--brand)}
+  .unsure{width:100%;margin-top:12px;border:1px dashed var(--card-brd);background:transparent;color:var(--tx-3);border-radius:12px;padding:12px;font-size:12.5px;cursor:pointer;min-height:44px;transition:.2s}
+  .unsure:hover,.unsure.sel{border-color:var(--warn);color:var(--warn);background:rgba(245,185,106,.07)}
+  .unsure em{font-style:normal;opacity:.7;margin-left:6px;font-size:11px}
+  .hint{text-align:center;color:var(--tx-3);font-size:11.5px;line-height:1.8;margin:16px 0 0;overflow-wrap:anywhere}
+  .dim-note{display:flex;align-items:flex-start;gap:10px;margin-top:15px;padding:13px 14px;border:1px solid var(--card-brd);border-radius:14px;background:rgba(127,127,160,.06);color:var(--tx-2);font-size:12.5px;line-height:1.7;min-width:0}
+  .dim-note .dn{flex:none;color:var(--brand-2);font-weight:700;white-space:nowrap}
+  .dim-note .dv{min-width:0;overflow-wrap:anywhere}
+  .quiz-bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;gap:10px;align-items:center;min-width:0;padding:11px 16px calc(11px + env(safe-area-inset-bottom));background:var(--bar-bg);backdrop-filter:blur(14px);border-top:1px solid var(--card-brd)}
+  body.quizing .quiz-bar{display:flex}
+  .quiz-bar .btn{flex:1}
+  .quiz-bar .btn.ghost{flex:0 0 auto;min-width:100px;padding:13px 10px;font-size:13px;white-space:nowrap}
+  .kb-only{display:inline}
+  @media(max-width:700px){.kb-only{display:none}}
+
+  /* ===== 结果 / 报告 ===== */
+  .panel{margin-top:20px;border:1px solid var(--card-brd);border-radius:24px;overflow:hidden;background:var(--card);backdrop-filter:blur(16px);box-shadow:var(--shadow);min-width:0}
+  .r-head{padding:34px 20px 28px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(113,102,240,.18),rgba(157,140,255,.05))}
+  .r-head::before{content:"";position:absolute;top:-90px;left:50%;transform:translateX(-50%);width:320px;height:320px;border-radius:50%;background:var(--glow);filter:blur(50px);opacity:.55}
+  .r-head .lbl{position:relative;color:var(--tx-2);font-size:12px;letter-spacing:2px}
+  .r-badge{position:relative;font-size:clamp(40px,13vw,78px);font-weight:800;letter-spacing:clamp(2px,1.4vw,8px);line-height:1.15;margin:8px 0 2px;background:linear-gradient(120deg,var(--brand),var(--brand-2),#D3C6FF);-webkit-background-clip:text;background-clip:text;color:transparent;overflow-wrap:anywhere}
+  .r-title{position:relative;font-size:20px;font-weight:700;overflow-wrap:anywhere}
+  .r-title span{color:var(--tx-3);font-size:13px;font-weight:500;margin-left:6px}
+  .r-meta{position:relative;margin-top:10px;font-size:12px;color:var(--tx-3);overflow-wrap:anywhere}
+  .r-body{padding:22px 18px 24px;min-width:0}
+  @media(min-width:700px){.r-body{padding:30px}.q-card{padding:34px}.r-head{padding:44px 30px 34px}}
+  .block-title{font-size:12px;font-weight:700;color:var(--brand-2);letter-spacing:1.5px;margin:22px 0 13px;display:flex;align-items:center;gap:8px}
+  .block-title:first-child{margin-top:0}
+  .block-title::before{content:"";width:3px;height:13px;flex:none;border-radius:2px;background:var(--brand)}
+  .summary{color:var(--tx-2);font-size:14px;line-height:1.95;margin:0 0 6px;overflow-wrap:anywhere}
+  .summary strong{color:var(--tx)}
+  .saved{display:flex;align-items:center;gap:9px;padding:11px 13px;border-radius:12px;background:rgba(78,216,166,.09);border:1px solid rgba(78,216,166,.25);color:var(--ok);font-size:12.5px;line-height:1.6;margin-bottom:20px;overflow-wrap:anywhere}
+  .saved svg{flex:none}
+
+  .bar-row{min-width:0;margin-bottom:16px}
+  .bar-head{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--tx-2);margin-bottom:7px;min-width:0}
+  .bar-head span{min-width:0;overflow-wrap:anywhere}
+  .bar-head b{color:var(--tx);font-size:13px}
+  .bar{height:9px;border-radius:99px;background:rgba(127,127,160,.18);overflow:hidden;display:flex}
+  .bar .a{background:linear-gradient(90deg,var(--brand),var(--brand-2));height:100%;transition:width .8s cubic-bezier(.4,0,.2,1)}
+  .bar .b{background:rgba(157,140,255,.26);height:100%;flex:1}
+  .bar-foot{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font-size:11px;color:var(--tx-3);line-height:1.5;min-width:0}
+  .bar-foot span{min-width:0;overflow-wrap:anywhere}
+  .bar-foot .lv{color:var(--brand-2);font-weight:700;white-space:nowrap;flex:none}
+  .bar-foot .dd{text-align:right}
+  @media(max-width:520px){.bar-foot{flex-direction:column;gap:2px}.bar-foot .dd{text-align:left}}
+
+  .radar-wrap{display:flex;justify-content:center;padding:6px 0 10px}
+  .radar-wrap svg{width:100%;max-width:420px;height:auto}
+
+  .scale-row{border:1px solid var(--card-brd);border-radius:14px;padding:14px;margin-bottom:12px;background:rgba(127,127,160,.04);min-width:0}
+  .scale-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;min-width:0}
+  .scale-top b{font-size:14px;overflow-wrap:anywhere}
+  .scale-val{font-size:13px;color:var(--tx-2);flex:none}
+  .scale-val em{font-style:normal;font-weight:700;color:var(--brand-2);font-size:15px}
+  .scale-track{height:10px;border-radius:99px;overflow:hidden;display:flex;background:rgba(127,127,160,.18);position:relative}
+  .scale-track i{display:block;height:100%}
+  .scale-needle{position:absolute;top:0;bottom:0;width:3px;border-radius:2px;background:#fff;box-shadow:0 0 0 1px rgba(10,8,28,.45),0 1px 4px rgba(0,0,0,.35);transform:translateX(-50%);pointer-events:none}
+  html[data-theme="light"] .scale-needle{background:#221F45;box-shadow:0 0 0 1px rgba(255,255,255,.9)}
+  .scale-band{margin-top:8px;font-size:11.5px;color:var(--tx-2);line-height:1.7;overflow-wrap:anywhere}
+  .scale-advice{margin-top:6px;font-size:12px;color:var(--tx-3);line-height:1.75;overflow-wrap:anywhere}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .chip{padding:7px 12px;border-radius:10px;background:var(--brand-soft);border:1px solid var(--card-brd);color:var(--tx-2);font-size:12.5px}
+  .sections{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  .sec-item{min-width:0}
+  .sec-item h4{margin:0 0 6px;font-size:13.5px;color:var(--tx)}
+  .sec-item p{margin:0;font-size:13px;line-height:1.9;color:var(--tx-2);overflow-wrap:anywhere}
+  .tip{background:rgba(78,216,166,.08);border:1px solid rgba(78,216,166,.23);border-radius:14px;padding:14px 15px;color:var(--tx-2);font-size:13px;line-height:1.85;overflow-wrap:anywhere;margin-top:14px}
+  .tip b{color:var(--ok)}
+  .tip.warn{background:rgba(245,185,106,.08);border-color:rgba(245,185,106,.3)}
+  .tip.warn b{color:var(--warn)}
+  .tip.danger{background:rgba(242,116,140,.09);border-color:rgba(242,116,140,.35)}
+  .tip.danger b{color:var(--danger)}
+  .tip.info{background:rgba(79,168,245,.08);border-color:rgba(79,168,245,.25)}
+  .tip.info b{color:var(--info)}
+  .result-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
+  .result-actions .btn{padding:13px 8px;font-size:13.5px;white-space:nowrap;min-width:0}
+  .result-actions .btn:first-child{grid-column:1 / -1;font-size:14px}
+  .copy-box{margin-top:13px;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.04);border:1px dashed var(--card-brd);border-radius:12px;padding:11px 12px;color:var(--tx-2);font-size:12.5px;min-width:0}
+  .copy-box span{flex:1;min-width:0;overflow-wrap:anywhere;line-height:1.5}
+  .copy-box span .nowrap{white-space:nowrap}
+  .copy-box button{flex:none;border:none;background:var(--brand);color:#fff;border-radius:9px;padding:9px 13px;font-size:12px;cursor:pointer;font-weight:600}
+
+  /* ===== 报告 ===== */
+  .report-toolbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:18px 0}
+  .report-toolbar .btn{padding:12px 6px;font-size:13px;white-space:nowrap;min-width:0}
+  .rpt-cover{text-align:center;padding:32px 20px 26px;border-bottom:1px solid var(--card-brd);position:relative}
+  .rpt-cover .kicker{font-size:11px;letter-spacing:3px;color:var(--tx-3)}
+  .rpt-cover h2{margin:10px 0 6px;font-size:clamp(22px,5.6vw,30px);line-height:1.3;overflow-wrap:anywhere}
+  .rpt-cover .who{color:var(--tx-2);font-size:13px;overflow-wrap:anywhere}
+  .rpt-meta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:11.5px;color:var(--tx-3)}
+  .rpt-meta span{display:inline-flex;align-items:center;gap:5px}
+  .rpt-foot{margin-top:24px;padding:16px;border-top:1px solid var(--card-brd);color:var(--tx-3);font-size:11px;line-height:1.8;text-align:center;overflow-wrap:anywhere}
+  .rpt-foot b{color:var(--tx-2)}
+
+  /* ===== 记录 ===== */
+  .hist-top{display:flex;align-items:center;gap:13px;margin:20px 0 20px;min-width:0}
+  .hist-top .ht{flex:1;min-width:0}
+  .hist-top h2{margin:0;font-size:22px}
+  .hist-top p{margin:5px 0 0;color:var(--tx-2);font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
+  @media(min-width:620px){.stat-grid{grid-template-columns:repeat(4,1fr)}}
+  .stat{border:1px solid var(--card-brd);border-radius:15px;padding:14px;background:var(--card);min-width:0}
+  .stat .k{font-size:11px;color:var(--tx-3);letter-spacing:.5px}
+  .stat .v{font-size:19px;font-weight:700;margin-top:6px;overflow-wrap:anywhere}
+  .stat .v.grad{background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .s{font-size:11px;color:var(--tx-3);margin-top:3px;overflow-wrap:anywhere}
+  .filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+  .fchip{font-size:11.5px;padding:6px 10px;border-radius:9px;border:1px solid var(--card-brd);background:transparent;color:var(--tx-2);cursor:pointer;transition:.2s;min-height:34px;flex:0 0 auto}
+  .fchip.on{border-color:var(--brand);color:var(--brand-2);background:var(--brand-soft);font-weight:700}
+  .hist-tools{display:flex;gap:9px;margin-bottom:16px;flex-wrap:wrap}
+  .hist-tools .btn{flex:1;min-width:130px}
+  .empty{text-align:center;padding:52px 20px;border:1px dashed var(--card-brd);border-radius:20px;color:var(--tx-2)}
+  .empty .em{font-size:38px;opacity:.5;margin-bottom:12px}
+  .empty b{display:block;color:var(--tx);font-size:15px;margin-bottom:8px}
+  .empty p{font-size:12.5px;line-height:1.8;margin:0 0 18px}
+  .rec{border:1px solid var(--card-brd);border-radius:17px;background:var(--card);margin-bottom:11px;overflow:hidden;min-width:0}
+  .rec-head{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;min-width:0}
+  .rec-head:hover{background:var(--brand-soft)}
+  .rec-code{font-size:17px;font-weight:800;letter-spacing:.5px;flex:none;background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;max-width:110px;overflow-wrap:anywhere}
+  .rec-main{flex:1;min-width:0}
+  .rec-main .t{font-size:14px;font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0}
+  .tag-mini{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--brand-soft);color:var(--brand-2);border:1px solid var(--card-brd);white-space:nowrap}
+  .rec-main .m{font-size:11.5px;color:var(--tx-3);margin-top:5px;line-height:1.5;overflow-wrap:anywhere}
+  .rec-arrow{flex:none;color:var(--tx-3);font-size:15px;transition:transform .2s}
+  .rec.open .rec-arrow{transform:rotate(180deg)}
+  .mini{display:flex;gap:4px;padding:0 14px 13px}
+  .mini i{flex:1;height:5px;border-radius:99px;background:rgba(127,127,160,.2);overflow:hidden;position:relative}
+  .mini i b{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));display:block}
+  .rec-detail{border-top:1px solid var(--card-brd);padding:15px 14px;background:rgba(127,127,160,.05)}
+  .rec-acts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .rec-acts .btn{flex:1;min-width:110px}
+  .answers{margin-top:11px;border-top:1px dashed var(--card-brd);padding-top:12px}
+  .answers .at{font-size:11px;color:var(--tx-3);margin-bottom:8px}
+  .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(30px,1fr));gap:4px}
+  .agrid span{aspect-ratio:1;border-radius:6px;display:grid;place-items:center;font-size:10px;font-weight:700;background:rgba(127,127,160,.14);color:var(--tx-3)}
+  .agrid span.a{background:var(--brand-soft);color:var(--brand-2)}
+  .agrid span.b{background:rgba(157,140,255,.2);color:var(--brand-2)}
+  .agrid span.u{background:rgba(245,185,106,.16);color:var(--warn)}
+  .ans-toggle{margin-top:13px}
+  .ans-toggle .btn{width:100%}
+
+  /* ===== 静态内容 ===== */
+  .seo{margin-top:34px;border-top:1px solid var(--card-brd);padding-top:26px;text-align:left}
+  .seo h2{font-size:19px;margin:0 0 12px;letter-spacing:.3px}
+  .seo p{color:var(--tx-2);font-size:13px;line-height:1.95;margin:0 0 16px;overflow-wrap:anywhere}
+  .seo strong{color:var(--tx)}
+  .seo-fold{border:1px solid var(--card-brd);border-radius:13px;background:var(--card);margin-bottom:10px;overflow:hidden}
+  .seo-fold summary{cursor:pointer;padding:13px 15px;font-size:13.5px;font-weight:600;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;min-width:0}
+  .seo-fold summary::-webkit-details-marker{display:none}
+  .seo-fold summary::after{content:'＋';color:var(--brand-2);font-size:16px;flex:none}
+  .seo-fold[open] summary::after{content:'－'}
+  .seo-fold summary:hover{color:var(--brand-2)}
+  .fold-body{padding:0 15px 15px}
+  .faq-list{margin:0}
+  .faq-item{border-top:1px dashed var(--card-brd);padding:11px 0}
+  .faq-item:first-child{border-top:none;padding-top:2px}
+  .faq-item dt{font-size:13px;font-weight:700;margin-bottom:6px;line-height:1.6}
+  .faq-item dd{margin:0;font-size:12.5px;line-height:1.9;color:var(--tx-2);overflow-wrap:anywhere}
+  .seo-tests{display:grid;gap:11px;grid-template-columns:1fr}
+  .seo-tests article{border:1px solid var(--card-brd);border-radius:13px;padding:14px 15px;background:var(--card);min-width:0}
+  .seo-tests h3{margin:0 0 7px;font-size:13.5px;line-height:1.55;overflow-wrap:anywhere}
+  .seo-tests h3 span{color:var(--tx-3);font-weight:500;font-size:11px;margin-left:5px;white-space:nowrap}
+  .seo-tests p{margin:0;font-size:12.5px;line-height:1.92;color:var(--tx-2)}
+  .t16-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+  .t16-grid div{border:1px solid var(--card-brd);border-radius:10px;padding:9px 11px;background:rgba(127,127,160,.05);min-width:0}
+  .t16-grid b{display:block;font-size:13px;letter-spacing:.6px;color:var(--brand-2)}
+  .t16-grid span{display:block;font-size:12px;color:var(--tx);margin:2px 0 1px}
+  .t16-grid em{display:block;font-style:normal;font-size:10.5px;color:var(--tx-3);line-height:1.55}
+  @media (min-width:700px){
+    .seo-tests{grid-template-columns:1fr 1fr}
+    .t16-grid{grid-template-columns:repeat(4,1fr)}
+  }
+  .site-foot{text-align:center;color:var(--tx-3);font-size:11.5px;line-height:1.9;margin-top:24px;padding-top:18px;border-top:1px solid var(--card-brd);overflow-wrap:anywhere}
+  .site-foot p{margin:0 0 6px}
+  .site-foot a{color:var(--brand-2);text-decoration:none}
+  .ns-box{margin:16px 0;padding:16px;border-radius:14px;border:1px solid var(--card-brd);background:var(--card);color:var(--tx-2);font-size:13px;line-height:1.9}
+  .ns-box strong{color:var(--tx);font-size:15px}
+  .toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translate(-50%,14px);z-index:60;padding:11px 18px;border-radius:12px;background:var(--solid);color:var(--tx);border:1px solid var(--brand);box-shadow:var(--shadow);font-size:13px;max-width:calc(100vw - 40px);opacity:0;pointer-events:none;transition:.25s;text-align:center;line-height:1.5}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+
+  /* ===== 打印 ===== */
+  @media print{
+    @page{size:A4;margin:14mm}
+    html,body{background:#fff!important;color:#111!important;padding:0!important}
+    body::before{display:none!important}
+    html,html[data-theme]{
+      --tx:#111!important;--tx-2:#333!important;--tx-3:#666!important;
+      --brand:#4B3FCB!important;--brand-2:#5B4FD6!important;
+      --card:#fff!important;--card-brd:#ddd!important;--solid:#fff!important;--bg:#fff!important;--bg-2:#fff!important
+    }
+    header,.quiz-bar,.toast,#home,#quiz,#result,#history,.no-print{display:none!important}
+    #report{display:block!important}
+    .panel{box-shadow:none!important;border:1px solid #ddd!important;backdrop-filter:none!important;background:#fff!important;border-radius:0!important;margin:0!important}
+    .r-head{background:#f7f6ff!important}
+    .r-head::before{display:none!important}
+    .r-badge,.rec-code{-webkit-text-fill-color:#3d34b8!important;color:#3d34b8!important}
+    .r-title,.q-text,.block-title{color:#111!important}
+    .block-title{color:#3d34b8!important}
+    .summary,.sec-item p,.bar-foot,.scale-band,.scale-advice,.bar-head,.r-meta,.rpt-foot,.rpt-cover .who{color:#333!important}
+    .summary strong,.sec-item p strong,.rpt-cover h2,.scale-val em{color:#2B2394!important;-webkit-text-fill-color:#2B2394!important}
+    .sec-item h4{color:#2B2394!important;font-size:13.5px!important}
+    .rpt-cover .kicker,.rpt-meta,.rpt-foot{color:#666!important}
+    .scale-needle{background:#111!important;box-shadow:0 0 0 1px #fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .tip{background:#f6f8f6!important;border-color:#bbb!important;color:#222!important}
+    .tip b{color:#111!important}
+    .chip{border-color:#ccc!important;color:#333!important;background:#f5f5f5!important}
+    .bar,.scale-track{background:#e6e6ee!important}
+    .bar .a{background:#6a5ef0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scale-track i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .bar .b{background:#cdc7f7!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .saved{display:none!important}
+    .block-title,.sec-item,.scale-row,.bar-row{break-inside:avoid}
+    .r-body{padding:18px!important}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://quiz.virtualman.top/#website",
+      "url": "https://quiz.virtualman.top/",
+      "name": "测试实验室",
+      "inLanguage": "zh-CN",
+      "description": "提供 MBTI、大五人格、DISC、霍兰德职业兴趣与心理状态自评五个在线测评，纯本地计算，可生成个人报告。"
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://quiz.virtualman.top/#app",
+      "name": "在线心理测评合集（MBTI / 大五人格 / DISC / 霍兰德 / 心理状态自评）",
+      "url": "https://quiz.virtualman.top/",
+      "description": "免费在线心理测评合集：MBTI 16型人格（93题原版）、大五人格 OCEAN、DISC 行为风格、霍兰德职业兴趣 RIASEC、心理状态自评（PHQ-9/GAD-7/PSS-10）。纯本地计算，支持生成个人报告与历史记录。",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "心理测评",
+      "operatingSystem": "Web",
+      "browserRequirements": "需要启用 JavaScript",
+      "inLanguage": "zh-CN",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "featureList": [
+        "MBTI 16 型人格测试（93 题原版题库与官方计分表）",
+        "大五人格 OCEAN 五维测试（50 题，含反向计分）",
+        "DISC 行为风格测试（24 题）",
+        "霍兰德职业兴趣 RIASEC 测试（60 题）",
+        "心理状态自评（PHQ-9 / GAD-7 / PSS-10）",
+        "生成可保存、可打印的个人报告",
+        "历史记录本地保存与导出"
+      ],
+      "publisher": {
+        "@id": "https://quiz.virtualman.top/#website"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://quiz.virtualman.top/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这几个测评有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MBTI 把你归入 16 种人格类型之一，适合自我认知与沟通风格讨论；大五人格用五个连续维度描述你，学术上信度更高；DISC 关注行为风格与协作方式，职场沟通常用；霍兰德用 RIASEC 六维给出职业兴趣代码；心理状态自评则是情绪与压力的筛查工具，不是性格测试。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "测评结果准确吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这些工具都是自我报告式量表，反映的是你作答当时的状态与自我认知，会随心境和环境变化。它们适合作为自我探索的参考，不适合用于诊断、招聘筛选或给人贴标签。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "心理状态自评能诊断抑郁症或焦虑症吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。PHQ-9、GAD-7、PSS-10 是筛查量表，用于了解近期情绪与压力水平，不构成医学诊断。如果分数偏高或持续困扰，请寻求精神科或心理咨询的专业评估。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "报告可以保存或打印吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。完成测评后点「生成完整报告」，报告页提供「保存为 PDF」按钮，会调起浏览器打印对话框，选择「另存为 PDF」即可保存。也可以导出 JSON 数据留档。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "数据会上传吗？记录存在哪？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会上传。答题、计分、报告全部在浏览器本地完成。历史记录保存在 localStorage，最多保留 100 条，可随时删除或清空。清除浏览器数据、更换设备或使用无痕模式时记录不会保留。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <a class="logo" href="#" onclick="goHome();return false;"><div class="mark">Q</div><span>测试实验室<small>5 个主流测评</small></span></a>
+  <nav class="head-acts" aria-label="快捷操作">
+    <button class="icon-btn hist-btn" id="histBtn" onclick="openHistory()" title="我的记录">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>
+      记录<span class="badge hidden" id="histBadge">0</span>
+    </button>
+    <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题"></button>
+  </nav>
+</header>
+
+<main>
+  <noscript><div class="ns-box"><strong>测试实验室 · 在线心理测评</strong><p>本站提供 MBTI 16 型人格（93 题原版）、大五人格 OCEAN、DISC 行为风格、霍兰德职业兴趣 RIASEC 与心理状态自评（PHQ-9 / GAD-7 / PSS-10）五个测评，答题、计分与报告均在你的浏览器本地完成，不上传任何数据。请开启 JavaScript 以开始测试。</p></div></noscript>
+
+  <!-- ============ HOME ============ -->
+  <section id="home" aria-label="测评首页">
+    <div class="hero">
+      <div class="pill"><span class="dot"></span> 5 个主流心理测评 · 纯本地计算</div>
+      <h1>用几分钟，<span class="grad">更了解自己</span></h1>
+      <p class="sub">性格、行为风格、职业兴趣、心理状态——挑一个开始。答题与计分全部在你的浏览器内完成，结束后可生成一份完整的个人报告。</p>
+    </div>
+
+    <div class="resume hidden" id="resumeBar">
+      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="txt"><b id="resumeTitle">有未完成的测试</b><span id="resumeSub"></span></div>
+      <button class="btn sm primary" onclick="resumeDraft()">继续</button>
+      <button class="x" onclick="discardDraft()" title="放弃">×</button>
+    </div>
+
+    <div class="recent hidden" id="recentCard" onclick="openHistory()">
+      <div class="rc" id="recentCode">—</div>
+      <div class="rt"><b id="recentTitle">最近一次测评</b><span id="recentSub"></span></div>
+      <div class="arrow">›</div>
+    </div>
+
+    <div class="sec-title">选择一个测评开始</div>
+    <div class="test-grid" id="testGrid"></div>
+
+    <section class="seo" id="about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">关于这些测评</h2>
+      <p>本站收录 5 个使用广泛、题目公开的心理与职业测评：<strong>MBTI 16 型人格</strong>（93 题原版题库 + 官方计分表）、<strong>大五人格 OCEAN</strong>（基于公共领域的 IPIP 题库）、<strong>DISC 行为风格</strong>、<strong>霍兰德职业兴趣 RIASEC</strong>、以及<strong>心理状态自评</strong>（PHQ-9 抑郁筛查、GAD-7 焦虑筛查、PSS-10 压力知觉）。每个测评都给出维度分数、分维解读与建议，并支持生成可保存的个人报告。</p>
+      <p>所有答题、计分与报告生成都在你的浏览器本地完成，不经过服务器，也不上传任何答案。历史记录保存在浏览器本地，你可以随时删除或导出。</p>
+      <details class="seo-fold" id="faqList">
+        <summary>常见问题：测评区别、准确性、隐私与报告</summary>
+        <div class="fold-body"><dl class="faq-list">
+          <div class="faq-item"><dt>这几个测评有什么区别？</dt><dd>MBTI 把你归入 16 种人格类型之一，适合自我认知与沟通风格讨论；大五人格用五个连续维度描述你，学术上信度更高；DISC 关注行为风格与协作方式，职场沟通常用；霍兰德用 RIASEC 六维给出职业兴趣代码；心理状态自评则是情绪与压力的筛查工具，不是性格测试。</dd></div>
+          <div class="faq-item"><dt>测评结果准确吗？</dt><dd>这些工具都是自我报告式量表，反映的是你作答当时的状态与自我认知，会随心境和环境变化。它们适合作为自我探索的参考，不适合用于诊断、招聘筛选或给人贴标签。</dd></div>
+          <div class="faq-item"><dt>心理状态自评能诊断抑郁症或焦虑症吗？</dt><dd>不能。PHQ-9、GAD-7、PSS-10 是筛查量表，用于了解近期情绪与压力水平，不构成医学诊断。如果分数偏高或持续困扰，请寻求精神科或心理咨询的专业评估。</dd></div>
+          <div class="faq-item"><dt>报告可以保存或打印吗？</dt><dd>可以。完成测评后点「生成完整报告」，报告页提供「保存为 PDF」按钮，会调起浏览器打印对话框，选择「另存为 PDF」即可保存。也可以导出 JSON 数据留档。</dd></div>
+          <div class="faq-item"><dt>数据会上传吗？记录存在哪？</dt><dd>不会上传。答题、计分、报告全部在浏览器本地完成。历史记录保存在 localStorage，最多保留 100 条，可随时删除或清空。清除浏览器数据、更换设备或使用无痕模式时记录不会保留。</dd></div>
+        </dl></div>
+      </details>
+    </section>
+
+    <section class="seo" id="tests-info" aria-labelledby="testsInfoTitle">
+      <h2 id="testsInfoTitle">五个测评分别测什么</h2>
+      <div class="seo-tests">
+        <article>
+          <h3>MBTI 16 型人格测试 <span>93 题原版 / 24 题精简</span></h3>
+          <p>93 道二选一题，测四个维度：外向 E 与内向 I（精力来源）、实感 S 与直觉 N（信息获取）、思考 T 与情感 F（决策方式）、判断 J 与知觉 P（生活态度），四维组合出 16 种人格类型，如 INTJ 建筑师、ENFP 竞选者、ISTJ 物流师。本站使用原版题库与官方计分表，正反表述交叉分布，减少作答惯性带来的偏差；同时提供 24 题精简版，1–2 分钟即可得到一个参考类型。</p>
+        </article>
+        <article>
+          <h3>大五人格测试 OCEAN <span>50 题</span></h3>
+          <p>大五人格（Big Five）是学术界最主流的性格框架，用五个连续维度描述你：开放性 Openness、尽责性 Conscientiousness、外向性 Extraversion、宜人性 Agreeableness、情绪敏感性 Neuroticism。它不把人塞进某个类型，而是给出五个 0–100 的分数与雷达图，并说明高、中、低各自意味着什么。题目含反向计分项，用于校验作答一致性。</p>
+        </article>
+        <article>
+          <h3>DISC 行为风格测试 <span>24 题</span></h3>
+          <p>DISC 把行为风格分为四种倾向：支配 D（目标与结果）、影响 I（表达与连接）、稳健 S（耐心与支持）、严谨 C（标准与准确）。24 道题描述你在工作与协作中的默认节奏，结果给出主导风格、次要风格以及两者组合的特点，还有和不同风格的人配合时的沟通建议。它描述的是行为，不是能力高低。</p>
+        </article>
+        <article>
+          <h3>霍兰德职业兴趣测试 RIASEC <span>60 题</span></h3>
+          <p>霍兰德职业兴趣理论把兴趣分为六类：实用型 R、研究型 I、艺术型 A、社会型 S、企业型 E、常规型 C。60 项活动偏好题得出你的三字母兴趣代码（例如 RIA、SEC），并给出这类组合常见的适配职业方向，以及相对最低的维度——后者同样重要，它能提示你哪些工作内容不容易成为你的动力来源。</p>
+        </article>
+        <article>
+          <h3>心理状态自评 <span>PHQ-9 / GAD-7 / PSS-10，26 题</span></h3>
+          <p>用三个国际通用的筛查量表了解近期状态：PHQ-9 测近两周的抑郁相关症状（0–27 分），GAD-7 测近两周的焦虑相关症状（0–21 分），PSS-10 测近一个月的压力知觉与掌控感（0–40 分）。结果给出分数区间、区间含义与可执行的建议。它只是筛查工具，不能用于诊断抑郁症或焦虑症；如果持续困扰或出现伤害自己的念头，请尽快寻求专业帮助。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="seo" id="mbti16" aria-labelledby="t16Title">
+      <h2 id="t16Title">MBTI 16 型人格速查</h2>
+      <p>四种维度两两组合，得到 16 种人格类型。下面是每个类型的常见中文名与最核心的特征，可作为测后对照参考。</p>
+      <div class="t16-grid">
+        <div><b>ISTJ</b><span>物流师</span><em>务实可靠、注重细节</em></div>
+        <div><b>ISFJ</b><span>守卫者</span><em>温暖细心、默默付出</em></div>
+        <div><b>INFJ</b><span>提倡者</span><em>洞察人心、理想坚定</em></div>
+        <div><b>INTJ</b><span>建筑师</span><em>独立思考、长远布局</em></div>
+        <div><b>ISTP</b><span>鉴赏家</span><em>冷静动手、随机应变</em></div>
+        <div><b>ISFP</b><span>探险家</span><em>温和敏锐、活在当下</em></div>
+        <div><b>INFP</b><span>调停者</span><em>价值驱动、想象丰富</em></div>
+        <div><b>INTP</b><span>逻辑学家</span><em>抽象推理、追问原理</em></div>
+        <div><b>ESTP</b><span>企业家</span><em>行动果断、敢于冒险</em></div>
+        <div><b>ESFP</b><span>表演者</span><em>热情外放、感染力强</em></div>
+        <div><b>ENFP</b><span>竞选者</span><em>好奇开放、善于连接</em></div>
+        <div><b>ENTP</b><span>辩论家</span><em>机智挑战、点子很多</em></div>
+        <div><b>ESTJ</b><span>总经理</span><em>高效组织、讲求秩序</em></div>
+        <div><b>ESFJ</b><span>执政官</span><em>热心协调、重视关系</em></div>
+        <div><b>ENFJ</b><span>主人公</span><em>感召他人、善于凝聚</em></div>
+        <div><b>ENTJ</b><span>指挥官</span><em>目标明确、推动执行</em></div>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <p>本站测评结果仅供自我探索参考，不构成心理诊断或医疗建议。</p>
+      <p><a href="#about">关于测评</a> · <a href="#faqList" onclick="document.getElementById('faqList').open=true">常见问题</a> · <a href="https://virtualman.top/">返回主站</a></p>
+      <p>© 测试实验室 · 所有数据仅保存在你的浏览器本地</p>
+    </footer>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="quiz" class="hidden" aria-label="答题">
+    <div class="quiz-top">
+      <button class="icon-btn" onclick="goHome()" title="返回" aria-label="返回">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="prog-wrap">
+        <div class="prog-info"><span id="modeLabel"></span><span>第 <b id="qNow">1</b> / <span id="qTotal">10</span> 题</span></div>
+        <div class="prog"><i id="progBar"></i></div>
+      </div>
+    </div>
+    <div class="q-card" id="qCard">
+      <div class="q-dim" id="qDim"></div>
+      <div class="q-text" id="qText" role="heading" aria-level="2"></div>
+      <div class="q-note hidden" id="qNote"></div>
+      <div id="opts"></div>
+    </div>
+    <div class="dim-note" id="dimNote"></div>
+    <p class="hint">选择后自动进入下一题 · 可随时返回修改<span class="kb-only"> · 键盘 1–5 / ← / → 也可操作</span></p>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="result" class="hidden" aria-label="测评结果">
+    <div id="resultBody"></div>
+  </section>
+
+  <!-- ============ REPORT ============ -->
+  <section id="report" class="hidden" aria-label="个人报告">
+    <div class="report-toolbar no-print">
+      <button class="btn primary" onclick="printReport()">存为 PDF</button>
+      <button class="btn" onclick="backToResult()">返回结果</button>
+      <button class="btn" onclick="exportRecord()">导出数据</button>
+    </div>
+    <div class="panel" id="reportPanel"></div>
+    <p class="foot-note no-print">在打印对话框中选择「另存为 PDF」即可保存报告。<br>报告内容由本地计算生成，不含任何个人身份信息。</p>
+  </section>
+
+  <!-- ============ HISTORY ============ -->
+  <section id="history" class="hidden" aria-label="我的记录">
+    <div class="hist-top">
+      <button class="icon-btn" onclick="goHome()" title="返回" aria-label="返回">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="ht"><h2>我的记录</h2><p>全部记录仅保存在本机浏览器（localStorage），不会上传服务器</p></div>
+    </div>
+    <div class="stat-grid" id="statGrid"></div>
+    <div class="filter-row" id="filterRow"></div>
+    <div class="hist-tools" id="histTools">
+      <button class="btn sm" onclick="exportAll()">↓ 导出全部 JSON</button>
+      <button class="btn sm danger" onclick="clearRecords()">清空全部记录</button>
+    </div>
+    <div id="histList"></div>
+    <p class="foot-note">最多保留最近 100 条记录，超出后自动淘汰最旧的一条。<br>清除浏览器数据、更换设备或使用无痕模式，记录不会保留。</p>
+  </section>
+</main>
+
+<div class="quiz-bar" id="quizBar">
+  <button class="btn ghost" id="prevBtn" onclick="prevQ()">← 上一题</button>
+  <button class="btn primary" id="nextBtn" onclick="nextQ()">下一题 →</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="data/mbti.js"></script>
+<script src="data/bigfive.js"></script>
+<script src="data/disc.js"></script>
+<script src="data/holland.js"></script>
+<script src="data/wellbeing.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
