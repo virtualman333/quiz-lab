@@ -30,7 +30,13 @@ function show(sec) {
   window.scrollTo({ top: 0, behavior: 'instant' });
   if (sec === 'home') refreshHome();
 }
-function goHome() { show('home'); }
+function goHome() {
+  show('home');
+  if (location.search) { try { history.replaceState(null, '', location.pathname); } catch (e) { } }
+}
+function setUrlParam(testId, variantId) {
+  try { history.replaceState(null, '', location.pathname + '?t=' + testId + '&v=' + variantId); } catch (e) { }
+}
 
 /* ============ 首页 ============ */
 function refreshHome() {
@@ -94,6 +100,7 @@ function startQuiz(testId, variantId, restore) {
   }
   $('modeLabel').textContent = t.name + (t.variants.length > 1 ? ' · ' + v.label : '');
   $('qTotal').textContent = questions.length;
+  setUrlParam(curTest.id, v.id);
   show('quiz'); renderQ();
 }
 
@@ -488,7 +495,19 @@ function migrateOld() {
   lsSet(K_MIG, 1);
 }
 
+/* 直达链接：/?t=mbti&v=full（落地页 CTA 与分享链接用） */
+function applyDeepLink() {
+  let t = null, v = null;
+  try { const q = new URLSearchParams(location.search); t = q.get('t'); v = q.get('v'); } catch (e) { }
+  if (!t) return false;
+  const test = byId(t); if (!test) return false;
+  const vid = (v && test.variants.some(x => x.id === v)) ? v : test.variants[0].id;
+  startQuiz(test.id, vid);
+  return true;
+}
+
 /* 启动 */
 migrateOld();
 applyTheme((() => { try { return localStorage.getItem(K_THEME); } catch (e) { return null; } })() || 'dark');
 show('home');
+applyDeepLink();

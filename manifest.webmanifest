@@ -1,0 +1,41 @@
+{
+  "name": "测试实验室 · 在线心理测评",
+  "short_name": "测试实验室",
+  "description": "MBTI、大五人格、DISC、霍兰德职业兴趣与心理状态自评五个测评，纯本地计算，可生成个人报告。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0C0B1A",
+  "theme_color": "#7166F0",
+  "categories": ["health", "education", "productivity"],
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "MBTI 16 型人格", "url": "/?t=mbti" },
+    { "name": "大五人格 OCEAN", "url": "/?t=bigfive" },
+    { "name": "DISC 行为风格", "url": "/?t=disc" },
+    { "name": "霍兰德职业兴趣", "url": "/?t=holland" },
+    { "name": "心理状态自评", "url": "/?t=wellbeing" }
+  ]
+}

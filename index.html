@@ -3,13 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0C0B1A" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#7166F0">
 <title>在线心理测评｜MBTI、大五人格、DISC、霍兰德职业兴趣、心理状态自评</title>
 <meta name="description" content="免费在线心理测评合集：MBTI 16型人格（93题原版）、大五人格 OCEAN、DISC 行为风格、霍兰德职业兴趣 RIASEC、心理状态自评（PHQ-9/GAD-7/PSS-10）。纯本地计算，支持生成个人报告与历史记录。">
 <meta name="keywords" content="心理测试,MBTI测试,大五人格,OCEAN,DISC测试,霍兰德职业兴趣,RIASEC,16型人格,性格测试,职业测评,PHQ-9,GAD-7,免费测评">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="author" content="测试实验室">
+<meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="https://quiz.virtualman.top/">
+<link rel="alternate" hreflang="zh-CN" href="https://quiz.virtualman.top/">
+<link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237166F0'/%3E%3Ctext x='32' y='46' font-size='36' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'%3EQ%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="测试实验室">
@@ -20,10 +24,12 @@
 <meta property="og:image" content="https://quiz.virtualman.top/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="测试实验室｜5 个主流心理测评，纯本地计算可生成报告">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="在线心理测评合集｜MBTI · 大五人格 · DISC · 霍兰德">
 <meta name="twitter:description" content="5 个主流心理测评，纯本地计算，答题后生成可保存的个人报告。">
 <meta name="twitter:image" content="https://quiz.virtualman.top/assets/og-image.png">
+<meta name="twitter:image:alt" content="测试实验室｜5 个主流心理测评">
 <style>
   :root{
     --brand:#7166F0; --brand-2:#9D8CFF; --brand-soft:rgba(113,102,240,.13);
@@ -305,6 +311,12 @@
   .seo h2{font-size:19px;margin:0 0 12px;letter-spacing:.3px}
   .seo p{color:var(--tx-2);font-size:13px;line-height:1.95;margin:0 0 16px;overflow-wrap:anywhere}
   .seo strong{color:var(--tx)}
+  .seo a{color:var(--brand-2);text-decoration:none;border-bottom:1px solid rgba(157,140,255,.35)}
+  .seo a:hover{color:#fff;border-bottom-color:var(--brand-2)}
+  .seo-tests h3 a{color:inherit;border-bottom:none}
+  .seo-tests h3 a:hover{color:var(--brand-2);border-bottom:none}
+  .seo-tests .more{display:inline-block;margin-top:10px;font-size:12px;font-weight:600;border-bottom:none}
+  .seo-tests .more:hover{text-decoration:underline}
   .seo-fold{border:1px solid var(--card-brd);border-radius:13px;background:var(--card);margin-bottom:10px;overflow:hidden}
   .seo-fold summary{cursor:pointer;padding:13px 15px;font-size:13.5px;font-weight:600;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;min-width:0}
   .seo-fold summary::-webkit-details-marker{display:none}
@@ -379,12 +391,44 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://quiz.virtualman.top/#org",
+      "name": "测试实验室",
+      "url": "https://quiz.virtualman.top/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://quiz.virtualman.top/assets/og-image.png"
+      }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://quiz.virtualman.top/#website",
       "url": "https://quiz.virtualman.top/",
       "name": "测试实验室",
       "inLanguage": "zh-CN",
+      "publisher": {
+        "@id": "https://quiz.virtualman.top/#org"
+      },
       "description": "提供 MBTI、大五人格、DISC、霍兰德职业兴趣与心理状态自评五个在线测评，纯本地计算，可生成个人报告。"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://quiz.virtualman.top/#webpage",
+      "url": "https://quiz.virtualman.top/",
+      "name": "在线心理测评｜MBTI、大五人格、DISC、霍兰德职业兴趣、心理状态自评",
+      "description": "免费在线心理测评合集：MBTI 16型人格（93题原版）、大五人格 OCEAN、DISC 行为风格、霍兰德职业兴趣 RIASEC、心理状态自评（PHQ-9/GAD-7/PSS-10）。纯本地计算，支持生成个人报告与历史记录。",
+      "inLanguage": "zh-CN",
+      "isPartOf": {
+        "@id": "https://quiz.virtualman.top/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://quiz.virtualman.top/assets/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-11-15",
+      "dateModified": "2026-11-17"
     },
     {
       "@type": "WebApplication",
@@ -412,9 +456,68 @@
         "生成可保存、可打印的个人报告",
         "历史记录本地保存与导出"
       ],
+      "mainEntityOfPage": {
+        "@id": "https://quiz.virtualman.top/#webpage"
+      },
       "publisher": {
-        "@id": "https://quiz.virtualman.top/#website"
+        "@id": "https://quiz.virtualman.top/#org"
       }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://quiz.virtualman.top/#nav",
+      "name": [
+        "MBTI 16 型人格测试",
+        "大五人格测试 OCEAN",
+        "DISC 行为风格测试",
+        "霍兰德职业兴趣测试",
+        "心理状态自评（PHQ-9 / GAD-7 / PSS-10）"
+      ],
+      "url": [
+        "https://quiz.virtualman.top/mbti/",
+        "https://quiz.virtualman.top/bigfive/",
+        "https://quiz.virtualman.top/disc/",
+        "https://quiz.virtualman.top/holland/",
+        "https://quiz.virtualman.top/wellbeing/"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://quiz.virtualman.top/#tests",
+      "name": "测评合集",
+      "numberOfItems": 5,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MBTI 16 型人格测试",
+          "url": "https://quiz.virtualman.top/mbti/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "大五人格测试 OCEAN",
+          "url": "https://quiz.virtualman.top/bigfive/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "DISC 行为风格测试",
+          "url": "https://quiz.virtualman.top/disc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "霍兰德职业兴趣测试",
+          "url": "https://quiz.virtualman.top/holland/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "心理状态自评（PHQ-9 / GAD-7 / PSS-10）",
+          "url": "https://quiz.virtualman.top/wellbeing/"
+        }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -507,7 +610,7 @@
 
     <section class="seo" id="about" aria-labelledby="aboutTitle">
       <h2 id="aboutTitle">关于这些测评</h2>
-      <p>本站收录 5 个使用广泛、题目公开的心理与职业测评：<strong>MBTI 16 型人格</strong>（93 题原版题库 + 官方计分表）、<strong>大五人格 OCEAN</strong>（基于公共领域的 IPIP 题库）、<strong>DISC 行为风格</strong>、<strong>霍兰德职业兴趣 RIASEC</strong>、以及<strong>心理状态自评</strong>（PHQ-9 抑郁筛查、GAD-7 焦虑筛查、PSS-10 压力知觉）。每个测评都给出维度分数、分维解读与建议，并支持生成可保存的个人报告。</p>
+      <p>本站收录 5 个使用广泛、题目公开的心理与职业测评：<a href="/mbti/"><strong>MBTI 16 型人格</strong></a>（93 题原版题库 + 官方计分表）、<a href="/bigfive/"><strong>大五人格 OCEAN</strong></a>（基于公共领域的 IPIP 题库）、<a href="/disc/"><strong>DISC 行为风格</strong></a>、<a href="/holland/"><strong>霍兰德职业兴趣 RIASEC</strong></a>、以及<a href="/wellbeing/"><strong>心理状态自评</strong></a>（PHQ-9 抑郁筛查、GAD-7 焦虑筛查、PSS-10 压力知觉）。每个测评都给出维度分数、分维解读与建议，并支持生成可保存的个人报告。</p>
       <p>所有答题、计分与报告生成都在你的浏览器本地完成，不经过服务器，也不上传任何答案。历史记录保存在浏览器本地，你可以随时删除或导出。</p>
       <details class="seo-fold" id="faqList">
         <summary>常见问题：测评区别、准确性、隐私与报告</summary>
@@ -525,24 +628,29 @@
       <h2 id="testsInfoTitle">五个测评分别测什么</h2>
       <div class="seo-tests">
         <article>
-          <h3>MBTI 16 型人格测试 <span>93 题原版 / 24 题精简</span></h3>
+          <h3><a href="/mbti/">MBTI 16 型人格测试</a> <span>93 题原版 / 24 题精简</span></h3>
           <p>93 道二选一题，测四个维度：外向 E 与内向 I（精力来源）、实感 S 与直觉 N（信息获取）、思考 T 与情感 F（决策方式）、判断 J 与知觉 P（生活态度），四维组合出 16 种人格类型，如 INTJ 建筑师、ENFP 竞选者、ISTJ 物流师。本站使用原版题库与官方计分表，正反表述交叉分布，减少作答惯性带来的偏差；同时提供 24 题精简版，1–2 分钟即可得到一个参考类型。</p>
+        <a class="more" href="/mbti/">查看详细说明 →</a>
         </article>
         <article>
-          <h3>大五人格测试 OCEAN <span>50 题</span></h3>
+          <h3><a href="/bigfive/">大五人格测试 OCEAN</a> <span>50 题</span></h3>
           <p>大五人格（Big Five）是学术界最主流的性格框架，用五个连续维度描述你：开放性 Openness、尽责性 Conscientiousness、外向性 Extraversion、宜人性 Agreeableness、情绪敏感性 Neuroticism。它不把人塞进某个类型，而是给出五个 0–100 的分数与雷达图，并说明高、中、低各自意味着什么。题目含反向计分项，用于校验作答一致性。</p>
+        <a class="more" href="/bigfive/">查看详细说明 →</a>
         </article>
         <article>
-          <h3>DISC 行为风格测试 <span>24 题</span></h3>
+          <h3><a href="/disc/">DISC 行为风格测试</a> <span>24 题</span></h3>
           <p>DISC 把行为风格分为四种倾向：支配 D（目标与结果）、影响 I（表达与连接）、稳健 S（耐心与支持）、严谨 C（标准与准确）。24 道题描述你在工作与协作中的默认节奏，结果给出主导风格、次要风格以及两者组合的特点，还有和不同风格的人配合时的沟通建议。它描述的是行为，不是能力高低。</p>
+        <a class="more" href="/disc/">查看详细说明 →</a>
         </article>
         <article>
-          <h3>霍兰德职业兴趣测试 RIASEC <span>60 题</span></h3>
+          <h3><a href="/holland/">霍兰德职业兴趣测试 RIASEC</a> <span>60 题</span></h3>
           <p>霍兰德职业兴趣理论把兴趣分为六类：实用型 R、研究型 I、艺术型 A、社会型 S、企业型 E、常规型 C。60 项活动偏好题得出你的三字母兴趣代码（例如 RIA、SEC），并给出这类组合常见的适配职业方向，以及相对最低的维度——后者同样重要，它能提示你哪些工作内容不容易成为你的动力来源。</p>
+        <a class="more" href="/holland/">查看详细说明 →</a>
         </article>
         <article>
-          <h3>心理状态自评 <span>PHQ-9 / GAD-7 / PSS-10，26 题</span></h3>
+          <h3><a href="/wellbeing/">心理状态自评</a> <span>PHQ-9 / GAD-7 / PSS-10，26 题</span></h3>
           <p>用三个国际通用的筛查量表了解近期状态：PHQ-9 测近两周的抑郁相关症状（0–27 分），GAD-7 测近两周的焦虑相关症状（0–21 分），PSS-10 测近一个月的压力知觉与掌控感（0–40 分）。结果给出分数区间、区间含义与可执行的建议。它只是筛查工具，不能用于诊断抑郁症或焦虑症；如果持续困扰或出现伤害自己的念头，请尽快寻求专业帮助。</p>
+        <a class="more" href="/wellbeing/">查看详细说明 →</a>
         </article>
       </div>
     </section>
